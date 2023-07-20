@@ -47,16 +47,53 @@ class Budgets:
 
     def withdraw(self, withdrew):
         self.balance -= withdrew
+def transfer(self, other_category, amount):
+        if amount <= self.balance:
+            self.withdraw(amount)
+            other_category.deposit(amount)
+        else:
+            print(" not enough to transfer")
 
 
 food_budget = Budgets(1)
 food_budget.deposit(20)
 food_budget.withdraw(5)
+food_budget.transfer(clothes_budget, 40)
 
+print("After Transfer:")
 clothes_budget = Budgets(0)
 clothes_budget.deposit(500)
 clothes_budget.withdraw(7000)
 
 print("Food budget Balance:", food_budget.balance)
 print("Clothes budget Balance:", clothes_budget.balance)
+
+
+#files tutorial: 
+file = open("pyproject.toml", "r")
+
+outfile = ""
+
+for line in range(1, 10):
+    if line % 2 == 0:
+        outfile += file.readline()
+    else:
+        file.readline()
+
+file.close()
+
+file = open("filename.txt", "w")
+file.write(outfile)
+file.close()
+
+with open("pyproject.toml","r") as file: 
+  information = file.read()
+
+print(information)
+
+1. Write a Python program to read an entire text file.
+file = open("pyproject.toml", "r")
+line = file.readlines()
+print(lines)
+file.close()
 
